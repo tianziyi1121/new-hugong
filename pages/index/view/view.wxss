@@ -1,0 +1,6 @@
+.identity-title { margin: 48rpx 0 260rpx; color: #020202;}
+.identity-img {width: 540rpx; margin: 0 auto;}
+.identity-img > view {width: 220rpx; padding: 20rpx 0; opacity: 0.7;transform: 0.5s;}
+.identity-img image {width: 160rpx;height: 160rpx; }
+.identity-btn {margin: 400rpx 30rpx 0;background: #37cf6b; border: none; color: #fff;}
+.identity-view .indentTile { color: #000; font-weight: 700;}

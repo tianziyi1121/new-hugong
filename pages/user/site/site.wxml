@@ -1,0 +1,32 @@
+<view class="content">
+  <view class="siteList pad30 f0 flj" wx:for="{{currentList}}" wx:key="index">
+    <view class="{{editId == item.id ? 'fl' : ''}}" bindtap="bindClick" data-index="{{index}}" bindtouchstart="mytouchstart"  bindtouchend="mytouchend" bindlongtap="deleteitem" data-index="{{index}}" data-id="{{item.id}}">
+      <image mode="aspectFit" wx:if="{{editId == item.id}}" class="pitchOn" src="../../../static/icon_paychoose_paypage_on@2x.png"></image>
+      <view>
+        <view class="listName fl">
+          <view class="f16 fb overn">{{item.name}}</view>
+          <view class="listPhone fl">
+            <view class="f16 fb">{{item.tel}}</view>
+            <view class="f12 tac" wx:if="{{item.status == 1}}">默认</view>
+          </view>
+        </view>
+        <view class="listDite f3 f14" wx:if="{{item.province !== item.city}}">{{item.province}}{{item.city}}{{item.county}}{{item.address}}</view>
+        <view class="listDite f3 f14" wx:if="{{item.province === item.city}}">{{item.city}}{{item.county}}{{item.address}}</view>
+      </view>
+      
+    </view>
+    <image class="listImage" bindtap="bindEdit" data-id="{{item.id}}" src="../../../static/edit.png"></image>
+  </view>
+
+  <!-- 暂无数据 -->
+  <view-no id="noData"></view-no>
+  <!-- 弹窗 -->
+  <view-show id="show" title="{{title}}" bind:closeTost="bindCancel" bind:showTost="bindAffirm" catchtouchmove="preventTouchMove"></view-show>
+
+  <view class="siteNew {{currentList.length >= 5 ? 'gray' : 'active' }} f16 pf tac" bindtap="bindsite">
+    <view class="fl">
+      <view>+</view>
+      <view>新建收货地址</view> 
+    </view>
+  </view>
+</view>

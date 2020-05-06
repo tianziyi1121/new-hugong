@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "地址管理",
+  "usingComponents": {
+    "view-position": "/components/position/position"
+  }
+}

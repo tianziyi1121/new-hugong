@@ -1,0 +1,1 @@
+<live-pusher url="{{url}}" mode="RTC" aspect="3:4" bindstatechange="recorderStateChange" bindnetstatus="recorderNetChange" muted="{{muted}}" max-bitrate="500" min-bitrate="200" autopush="true"  style="width: 240rpx; height: 360rpx; z-index: 4;position: fixed; top: 40rpx; right: 40rpx; border: 2rpx solid red;"/>

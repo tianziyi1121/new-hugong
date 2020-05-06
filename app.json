@@ -1,0 +1,107 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/home/view/view",
+    "pages/home/video/view",
+    "pages/home/video/view/view/view",
+    "pages/home/videoPage/videoPage",
+    "pages/home/video/view/view",
+    "pages/index/index",
+    "pages/index/view/view",
+    "pages/indent/apply/apply",
+    "pages/food/food", 
+    "pages/food/view/view",
+    "pages/food/details/details",
+    "pages/indent/view/view",
+    "pages/indent/indent",
+    "pages/product/product",
+    "pages/product/view/view",
+    "pages/product/search/search",
+    "pages/user/user",
+    "pages/user/pay/pay",
+    "pages/user/view/view",
+    "pages/user/user/user",
+    "pages/user/site/site",
+    "pages/user/about/about",
+    "pages/user/order/order",
+    "pages/user/pay/view/view",
+    "pages/user/site/view/view",
+    "pages/user/order/view/view",
+    "pages/user/about/view/view",
+    "pages/user/message/message",
+    "pages/user/message/view/view",
+    "pages/user/pay/view/view/view",
+    "pages/shopping/shopping",
+    "pages/order/order",
+    "pages/balance/balance",
+    "pages/balance/bank/bank",
+    "pages/balance/view/view",
+    "pages/balance/bank/view/view",
+    "pages/balance/deposit/deposit",
+    "pages/balance/withdraw/withdraw",
+    "pages/balance/withdraw/view/view",
+    "pages/register/register",
+    "pages/register/user/user",
+    "pages/register/user/view/view",
+    "pages/recovery/recovery",
+    "pages/recovery/view/view",
+    "pages/hospital/hospital",
+    "pages/hospital/view/view",
+    "pages/subscribe/subscribe",
+    "pages/subscribe/view/view",
+    "pages/lookCare/lookCare",
+    "pages/lookCare/view/view",
+    "pages/lookCare/search/search",
+    "pages/lookCare/details/details",
+    "pages/lookCare/details/view/view",
+    "pages/lookCare/view/details/details",
+    "pages/lookCare/lookCareHome/lookCareHome",
+    "pages/timer/timer",
+    "pages/tailor/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "随身健康",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "position": "bottom",
+    "color": "#999",
+    "selectedColor": "#37cf6b",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "static/homepage.png",
+        "selectedIconPath": "static/homepage_block.png"
+      },
+      {
+        "pagePath": "pages/lookCare/lookCare",
+        "text": "约护工",
+        "iconPath": "static/carer.png",
+        "selectedIconPath": "static/carer_block.png"
+      },
+      {
+        "pagePath": "pages/indent/indent",
+        "text": "订单",
+        "iconPath": "static/indent.png",
+        "selectedIconPath": "static/indent_block.png"
+      },
+      {
+        "pagePath": "pages/product/product",
+        "text": "产品",
+        "iconPath": "static/product.png",
+        "selectedIconPath": "static/product_block.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "static/user.png",
+        "selectedIconPath": "static/user_block.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,61 @@
+.lookCareNav { background: #fff; height: 114rpx;}
+.lookCareNav > view {padding:18rpx 0; width: 100%; }
+.lookCareNav > view:nth-child(3) {padding: 0;}
+.lookCareNav .lookCare{ width:690rpx; margin:0 auto;}
+.lookCareNav .lookCare > view{ width: 100%; position: relative;height: 52rpx;}
+.lookCareNav .position {opacity: 1;}
+.positionNav{ background: #fff; z-index: 999; top:0; opacity: 0;transition: all 0.1s ease-in-out;width: 100%;}
+/* 弹窗 */
+.lookCareDialog { width: 100%; height: 100%; position: fixed; background:rgba(0,0,0,.2); z-index: 999; left: 0; top: 163rpx;}
+.lookCareDialog .NoData { padding: 40rpx 0 60rpx; background: #fff; text-align: center; color: #37cf6b;}
+.dialogContent{ width: 100%; border-top: 2rpx solid  #eee;}
+.dialogContent .dialog { flex-direction: row; flex-wrap: wrap; padding-bottom: 60rpx;}
+.dialogContent .dialog > view { width: 33.33%;}
+.dialogContent .dialog >  .sex { width: 50%;}
+.dialogContent view.active {color: #37cf6b;} 
+.lookCareNav .care-view { width: 690rpx;  margin: 0 auto; color: #6b6b6b;}
+.lookCareNav .care-view > view {margin-top: 21rpx;width: 100%;}
+.lookCareNav .care-bj { width: 90%; background: #F6F6F6; height: 52rpx; line-height: 52rpx; border-radius: 26rpx; margin-left: 10rpx;}
+.care-bj > view:nth-child(1) {width: 100%;}
+.care-bj.active {color: #fff; background: #37cf6b;}
+.care-bj > view:nth-child(2) {width: 0; height: 0; border-left: 10rpx solid transparent; border-right: 10rpx solid transparent; border-top: 10rpx solid #6b6b6b; position: absolute; right:8rpx; top:24rpx; transform: .2s;}
+.care-bj.active > view:nth-child(2) {width: 0; height: 0; border-left: 10rpx solid transparent; border-right: 10rpx solid transparent; border-top: 10rpx solid #fff; position: absolute; right:8rpx; top:24rpx; /* animation: tea_arrow 0.2s linear; */}
+.scrolltop {height: 40rpx;}
+.care-line {height: 150rpx;}
+.care-data {margin-top: 40rpx;}
+.care-data .care-left >view:nth-child(1) > image {width: 120rpx; height: 120rpx; border-radius: 50%;}
+.care-data .care-left >view:nth-child(1) > view {width: 72rpx; height: 32rpx; line-height: 32rpx; font-size: 24rpx; border-radius: 16rpx; text-align: center; top: 98rpx; left: 20rpx; background: #fff;}
+.care-data .care-left .busy {border: 2rpx solid #EE2B2B; color: #EE2B2B;}
+.care-data .care-left .leisure {border: 2rpx solid #37CF6B; color: #37CF6B;}
+.care-data .care-left >view:nth-child(2){margin-top: 24rpx;}
+.care-data .care-left >view:nth-child(2) > image {width: 32rpx; height: 32rpx;}
+.care-data .care-left >view:nth-child(2) > image:nth-child(2){margin:0 10rpx;}
+.care-data .right-collect > image {width: 36rpx; height: 36rpx;}
+.care-data .care-right{margin: 14rpx 0 0 28rpx;}
+.right-title .careTitle {width: 126rpx; height: 36rpx; border: 2rpx solid #FFA600; color: #FFA600; font-weight: 600; line-height: 36rpx; margin: 0 20rpx;}
+.right-title .care-rank {height: 36rpx; line-height: 36rpx; border: 2rpx solid #37CF6B; color: #37CF6B; font-weight: 600; padding: 0 10rpx;}
+.care-right .right-man {margin:  20rpx 0; color: #6B6B6B;}
+.right-man-hospital{width: 246rpx;}
+.care-data .right-man > view {padding: 0 10rpx; border-left: 2rpx solid #6B6B6B; height: 26rpx; line-height: 26rpx;}
+.care-data .right-man > text {height: 26rpx; line-height: 26rpx; padding-right:10rpx;}
+.lookCare-img image {width: 32rpx; height: 32rpx;}
+/* 收藏 */
+.care-data .right-collect {margin-top: 6rpx;}
+.care-data .right-collect.collectUrl {color: #AAAAAA}
+.care-data .right-collect.collectBlockUrl {color: #FFA600;}
+.care-data .right-collect > view {margin-top: 6rpx;}
+/* 特长 */
+.care-data .right-speciality {color: #999;margin-bottom: 20rpx;}
+.care-data .right-footer > .flj {width: 570rpx;height: 88rpx;line-height: 88rpx;}
+.right-footer .right-money { width: 100%; border-top: 2rpx solid #EEEEEE;}
+.right-footer .right-money > text:nth-child(1) {color: #FF4200; margin-right: 16rpx;}
+.right-footer .right-money > text:nth-child(2) {color: #999;}
+.care-data .right-footer .green {background: #37CF6B;}
+.care-data .right-footer .gray {background: #CCC;}
+.care-data .right-footer .right-btn {width: 260rpx; color: #fff;}
+.carelook-right {border-bottom: 2rpx solid #EEEEEE; margin-left: 30rpx;}
+#position {width: 100%;}
+/* 地区弹窗 */
+.lookCare-content { position: fixed; background:rgba(0,0,0,.2); z-index: 1000; left: 0; top: 150rpx;border-top: 2rpx solid #eee;}
+/* 遮盖 */
+.lsh_order { left: 0; top: 163rpx; right: 0; bottom: 0; background:rgba(0,0,0,.1); width: 100%; z-index: 2rpx}

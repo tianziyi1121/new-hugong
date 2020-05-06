@@ -1,0 +1,12 @@
+@import "../../../common/toast.wxss";
+@import "../../../common/food-details.wxss";
+.view-imag { width: 750rpx; height: 560rpx;}
+.view-title { margin: 40rpx 0 24rpx; }
+.view-number { color: #aaa; margin-top: 44rpx;}
+.view-number text { margin-left: 16rpx;}
+.view-money { margin: 40rpx 0;}
+.view-money  view:nth-child(1) { font-size: 38rpx; color: #EE2B2B; } 
+.view-shopping { background: #37CF6B; color: #fff; line-height: 52rpx; padding: 0 16rpx; height:52rpx; border-radius: 26rpx;}
+.view-view { margin: 36rpx 0;}
+.view-rich { color: #aaa;}
+.view-ls_popup { position: fixed; left: 0; bottom: 0; z-index: 2; width: 100%;}

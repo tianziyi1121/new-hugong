@@ -1,0 +1,66 @@
+<view class="content">
+  <view class="productTitle fl tac fc f16">
+    <view bindtap="bindTile" data-type="1" class="{{list.type == 1 ? 'active' : ''}}">护工</view>
+    <view bindtap="bindTile" data-type="2" class="{{list.type == 2 ? 'active' : ''}}">商品</view>
+  </view>
+  <view class="order-line" wx:if="{{currentList.length !== 0}}"></view>
+  <view class="productList" wx:if="{{list.type == 2}}">
+    <view bindtap='onProductList' data-id="{{item.collection_product_id}}" wx:for="{{currentList}}" wx:for-item="item" wx:key="index"  class="SMproductList flj">
+      <image mode="aspectFit" src="{{item.pro_pic != '' ? item.pro_pic : '../../../static/placeholder_figure.png'}}"></image>
+      <view class="SMproductList_right f14 fljc pr">
+        <view>
+          <view class="right-title f14">{{item.pro_name}}</view>
+          <view class="right-content f12">{{item.pro_description}}</view>
+        </view>
+        <view class="right-footer flj">
+          <view class="right-red">￥{{item.pro_price}}</view>
+          <view class="view-delete f12 pa" catchtap="catchDelet" data-id="{{item.collection_id}}" data-index="{{index}}">删除</view>
+        </view>
+        <view class="right-line pa"></view>
+      </view>
+    </view>
+  </view>  
+
+  <!-- 护工 -->
+  <view wx:if="{{list.type == 1}}" class="care-data pr" wx:for="{{currentList}}" wx:key="index" for-tiem="item" bindtap="onProductList" data-id="{{item.collection_product_id}}">
+    <view  class="pad30 flj">
+      <view class="care-left">
+        <view class="pr">
+          <image mode="scaleToFill" src="{{item.nursing_workers_headpic != '' ? item.nursing_workers_headpic : '../../../static/head.png'}}"></image>
+        </view>
+      </view>
+      <view class="care-right">
+        <view class="fl">
+          <view>
+            <view class="right-title fl">
+              <text class="fb f16 fb">{{item.nursing_workers_name}}</text>
+              <view class="careTitle f12 tac">护龄{{item.nursing_workers_experience}}年</view>
+              <view class="care-rank f12 tac">{{item.rank_name}}</view>
+            </view>
+            <view class="fl right-man f14">
+              <text>{{item.nursing_workers_sex == 1 ? '男' : '女'}}</text>
+              <view>{{item.nursing_workers_age}}岁</view>
+              <view>{{item.nursing_workers_proname }}</view>
+              <view style="max-width:300rpx;" class="overn">{{item.hospital}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="right-speciality f14 over2">特长：{{item.nursing_workers_speciality}}</view>
+      </view>
+    </view>
+    <view class="viewDelete f12 tac pa" catchtap="catchDelet" data-id="{{item.collection_id}}" data-index="{{index}}">删除</view>
+    <view class="carelook-right"></view>
+  </view>
+  <!-- 暂无数据 -->
+  <view-no id="noData"></view-no>
+  <!-- 上拉加载 -->
+  <view style="display: {{loadingFlag ? 'none' : 'block'}};" class="view-loading">
+    <view-loading id="load"></view-loading>
+  </view>
+  <!-- 弹窗组件 -->
+    <view style="display:{{oshowFlag ? 'none' : ''}};">
+      <block>
+        <view-oshow title="{{lastTiles}}" id='oshow' bind:showTost="onbindShow" bind:closeTost="onbindClose"></view-oshow>
+      </block>
+    </view>
+</view>

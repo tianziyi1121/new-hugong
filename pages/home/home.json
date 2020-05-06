@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "随身健康",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "view-loading": "/components/loading/loading",
+    "view-shadow": "/components/shadow/shadow",
+    "login-view": "/components/login/login"
+  }
+}

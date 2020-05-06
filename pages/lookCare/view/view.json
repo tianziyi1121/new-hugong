@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "护工详情",
+  "usingComponents": {
+    "login-view": "/components/login/login"
+  }
+}

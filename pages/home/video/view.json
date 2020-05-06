@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "聊天信息",
+  "usingComponents": {
+    "nav-tabbar": "/components/tabbar/tabbar",
+    "view-loading": "/components/loading/loading",
+    "view-no": "/components/noData/noData"
+  }
+}

@@ -1,0 +1,2 @@
+.videoList .list > image { width: 20rpx; height: 34rpx; margin-top: 40rpx;}
+.videoList .list { height: 100rpx; line-height: 100rpx;}

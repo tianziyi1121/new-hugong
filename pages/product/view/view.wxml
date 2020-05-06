@@ -1,0 +1,81 @@
+<view class= "content">
+  <swiper wx:if="{{details.pro_allpic.length !=1}}" indicator-dots="{{indicatorDots}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" class="swiper" indicator-active-color="#FFA600" indicator-color="#D8D8D8">
+    <block wx:for="{{details.pro_allpic}}" wx:key="item">
+      <swiper-item class="tac">
+          <image bindtap="imageListData" data-index="{{index}}" mode="aspectFit" src="{{item != '' ? item : '../../../static/placeholder_figure.png'}}" class="swiper-img"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="tac particulars-img" wx:if="{{details.pro_allpic.length ==1}}">
+    <image bindtap="imageListData" data-index="0" mode="aspectFit" src="{{details.pro_allpic[0] != '' ? details.pro_allpic[0] : '../../../static/placeholder_figure.png'}}" class="swiper-img"></image>
+  </view>
+  <view class="particulars pr flj">
+    <rich-text class="particulars-title fb f16 over2" nodes="{{details.pro_name}}"></rich-text>
+    <view class="pa line"></view>
+    <view class="particulars-collect f14 tac" bindtap="collect">
+      <image mode="aspectFit" src="{{ details.is_collection == 0 ? url : surl}}"></image>
+      <view>收藏</view>
+    </view>
+  </view>
+  <view class="particulars-price fl ">
+    <view class="f16">￥{{details.pro_price}}</view>
+    <!-- <view class ="f14 particulars-slash pr">￥{{details.slashPrices}}<view></view></view> -->
+  </view>
+  <view class="particulars-line"></view>
+  <view class="particulars-phone flj pad30 f16 fb" bindtap="phone" data-index="{{details.pro_tel}}">
+    <view>
+      <image mode ="aspectFit" class="vm" src="../../../static/icon_merchanttel@2x.png"></image>商家电话
+    </view>
+    <view>{{details.pro_tel}}</view>
+  </view>
+  <view class="particulars-line" wx:if="{{details.pro_description != ''}}"></view>
+  <view class="particulars-details pr" wx:if="{{details.pro_description != ''}}">
+      <view class="particulars-title tac f14 fc">产品描述</view>
+      <view class="particulars-left pa"></view>
+      <view class="particulars-right pa"></view>
+  </view>
+  <view class="particulars-description f12" wx:if="{{details.pro_description != ''}}">
+    <view>{{details.pro_description}}</view>
+  </view>
+  <view class="particulars-line" wx:if="{{details.pro_content != ''}}"></view>
+  <view class="particulars-details pr">
+      <view class="particulars-title tac f14 fc">商品详情</view>
+      <view class="particulars-left pa"></view>
+      <view class="particulars-right pa"></view>
+  </view>
+  <view class="particulars-des" wx:if="{{details.pro_content != ''}}">
+  <!-- <view></view> -->
+    <rich-text class="f12" nodes="{{details.pro_content}}"></rich-text>
+  </view>
+  <view class="particulars-navline"></view>
+  <view class="particulars-nav fl">
+    <view class="nav-line"></view>
+    <view class="nav-phone tac" bindtap="phone" data-index="{{details.pro_tel}}">
+      <image mode="aspectFit" src="../../../static/icon_merchanttel_bottom@2x.png"></image>
+      <view class="f12">联系我</view>
+    </view>
+    <view class="nav-cart tac pr" bindtap="shoppingCart">
+      <image mode="aspectFit" src="../../../static/icon_marketcar_bottom@2x.png"></image>
+      <view class="f12">购物车</view>
+      <view class="pa nav-hint tac" wx:if="{{ details.carts_count != '' && details.carts_count != 0 }}">{{details.carts_count}}</view>
+    </view>
+    <view  class="nav-cartAdd tac f16" bindtap="addShoppingCart" data-index="{{details.id}}">加入购物车</view>
+    <view class="nav-buy tac f16" bindtap="buyNow" data-index="{{details.id}}">立即购买</view>
+  </view>
+  <!-- 弹窗 -->
+  <view class="view-product" hidden="{{domeMode}}">
+    <view class="view-bag" catchtap="bindCancel"></view>
+    <view class="view-content transformDome pf" animation="{{animationData}}">
+      <view>
+        <view class="view-hour f16 fc tac">是否联系商家？</view>
+        <view class="view-affirm f16 fc tac" catchtap="bindAffirm">确认</view>
+      </view>
+      <view class="view-cancel f16 fc tac" catchtap="bindCancel">取消</view>
+    </view>
+  </view>
+  <!-- login -->
+  <!-- 阴影层 -->
+  <view style="display: {{loginFlag ? 'block' : 'none'}}">
+    <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+  </view>
+</view>

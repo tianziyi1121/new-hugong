@@ -1,0 +1,49 @@
+<view classs="content f0">
+  <view class="rechange-line"></view>
+  <view class="pad30">
+    <view class="viewList fl">
+      <view class="f16 paddingList">收货人</view>
+      <input class="f14 f9" bindinput="bindName" data-name="name" value="{{form.name}}" placeholder-class="f14 f9" placeholder="请输入收货人姓名" ></input>
+    </view>
+    <view class="rechange-line"></view>
+  </view>
+  <view class="pad30">
+    <view class="viewList fl">
+      <view class="f16">手机号码</view>
+      <input class="f14 f9" bindinput="bindName" type="number" maxlength="11" data-name="tel" value="{{form.tel}}" placeholder-class="f14 f9" placeholder="请输入手机号码"></input>
+    </view>
+    <view class="rechange-line"></view>
+  </view>
+  <view class="pad30">
+    <view class="viewList fl">
+      <view class="f16 paddingList">所在地区</view>
+      <view class="f14 f9 position" bindtap="bindEdit">{{position === '' ? (form.id === '' ? "请选择所在地区" : form.area) : position}}</view>
+    </view>
+    <view class="rechange-line"></view>
+  </view>
+  <view class="pad30">
+    <view class="viewList fl">
+      <view class="f16 paddingList">详细地址</view>
+      <!-- <view class="detailedAddress f9 f14" wx:if="{{!addressArea}}">{{form.address !== '' ? form.address : '请填写详细地址'}}</view> -->
+      <textarea bindinput="bindName" data-name="address" value="{{form.address}}" class="f9 f14" auto-height placeholder-class="f9 f14" placeholder="请填写详细地址"/>
+    </view>
+    <view class="rechange-line"></view>
+  </view>
+  <view class="pad30 flj">
+    <view class="viewList">
+      <view class="f16">设置默认地址</view>
+      <view class="f12 f6">提醒：每次下单会默认推荐使用该地址</view>
+    </view>
+    <switch bindchange="bindSwitch" checked="{{form.status === 1 ? true : false}}" class="switch" name="switch"/>
+  </view>
+  <view class="rechange-line"></view>
+  <!-- bottom --> 
+  <view class="siteNew f16 pf tac" bindtap="bindSaave">保存</view>
+  <!-- pop-up -->
+ <view class="videoUp" wx:if="{{videoUp}}">
+    <view class="boxShadow pf {{shadow != '' ? (shadow == 1 ? 'boxShadow0' : 'boxShadow1') : ''}}" catchtap="unshade"></view>
+    <view class="videoView pf {{content != '' ? (content == 1? 'list0' : 'list1') : ''}} f16 f0">
+      <view-position dataType="1" typeNumber="5" id="position" bind:calendarchange="onCalendarChange" bind:showTab="unshade"/>
+    </view>
+  </view>
+</view>

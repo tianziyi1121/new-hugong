@@ -1,0 +1,32 @@
+/* indent.wxss */
+.indent-timer image {width: 48rpx;height: 48rpx;position: absolute;top: 24rpx;right: 30rpx;z-index: 99;}
+.indent-timer {height: 100rpx;font-size: 24rpx;color: #AAAAAA;}
+.indent-timer > view > view { line-height: 50rpx;}
+.indent-name {margin-top: 30rpx;}
+.indent-name image {width: 64rpx;height: 64rpx;border-radius: 50%;}
+.indent-name .indent-title {margin: 16rpx;}
+.indent-name .indent-title > text {color: #333333; font-size: 28rpx; font-weight: bold;}
+.indent-name .indent-title > view { color: #fff; font-size: 20rpx; background: #37CF6B; height: 36rpx; line-height: 34rpx; padding: 0 8rpx; border-radius: 16rpx; margin: 4rpx 0 0 10rpx;}
+.index-time {margin-top: 16rpx; color: #333333; font-size: 24rpx;}
+.index-time > view:nth-child(1) { width: 464rpx;}
+.index-time .indent-line {height: 24rpx; width: 2rpx; background: #333333; margin:6rpx 20rpx 0;}
+.indent-goods > view:nth-child(1) {color: #333333; font-size: 24rpx; margin: 20rpx 20rpx 0 0; width: 110rpx;}
+.indent-goods {margin-top: 22rpx;}
+.goods-img {max-width: 500rpx;}
+.goods-img image{width: 80rpx; height: 80rpx; margin-right: 20rpx;}
+.indentLine {height: 2rpx;background: #ccc;margin-top: 40rpx;}
+.indent-content {height: 88rpx; line-height: 88rpx; color: #333333; font-size: 26rpx; text-align: right;}
+.indent-content > text {margin-left: 16rpx;}
+.indent-content  .indent-money {font-size: 32rpx; font-weight: 700;}
+.indentContentLine {height: 2rpx;background: #E5E5E5;}
+.indent-btn {margin-top: 20rpx; /* height: 88rpx; */ padding-bottom: 20rpx;}
+.btn-footer view { height: 56rpx; line-height: 56rpx; font-size: 28rpx; color: #333; border: 2rpx solid #888888; padding: 0 18rpx; border-radius: 28rpx; margin-left: 20rpx;}
+.btn-footer .nodataList { border: none; padding: 0; margin-left: 0; border-radius: 0;}
+.btn-footer .btn-footer-line{border: none;}
+.goodImg {width: 197rpx;height: 197rpx;top: 28rpx;right: 30rpx;}
+.goods-details {margin: 20rpx 0;}
+.goods-details image {width: 110rpx; height: 110rpx; margin-right: 20rpx;}
+.goods-details > view {width: 560rpx; margin-top: 30rpx;}
+.goods-details > view > view:nth-child(1) {font-size: 32rpx; color: #333333;} 
+.goods-details > view > view:nth-child(2) {color: #898989; font-size: 28rpx; margin: 6rpx 0 0 20rpx;}
+.view-loading { margin-top: -20rpx;}

@@ -1,0 +1,5 @@
+@import "../../common/food_product.wxss";
+.title {height: 56rpx; line-height: 56rpx; }
+.f12.flj.title-money {width: 320rpx;}
+.f12.flj.title-money view { margin-top: 4rpx;}
+.viewTile {background: #fff;width: 100%;}

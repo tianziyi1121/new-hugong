@@ -1,0 +1,14 @@
+.pitchOn { width: 36rpx; height: 36rpx; margin: 60rpx 30rpx 0 0;}
+.listName { height: 80rpx; line-height: 80rpx;}
+.listName > view:nth-child(1) { width: 160rpx;}
+.listPhone { margin-left: 80rpx;}
+.listPhone > view:nth-child(2) { padding: 2rpx 0; width: 56rpx; background: #37cf6b; border-radius: 10rpx; color: #fff; height: 32rpx; margin: 22rpx 0 0 32rpx; line-height: 32rpx;}
+.listDite { line-height: 50rpx;}
+.listImage { width: 60rpx; height: 60rpx; margin: 60rpx 0 0 30rpx; }
+.siteNew { left: 30rpx; bottom: 40rpx; color: #fff; height: 100rpx; border-radius: 50rpx; width: 690rpx;}
+.gray { background: #999;}
+.active { background: #37cf6b;}
+.siteNew > view { width: 240rpx; margin: 0 auto;}
+.siteNew > view > view:nth-child(1) { font-size: 50rpx; line-height: 100rpx;}
+.siteNew > view > view:nth-child(2) { line-height: 100rpx;}
+.siteList > view{ flex: 1;}

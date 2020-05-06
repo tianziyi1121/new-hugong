@@ -1,0 +1,4 @@
+<view class="content">
+  <rich-text nodes="{{currentData.menu_content}}"></rich-text>
+  <view class="currentButton tac f16 fb" wx:if="{{showFlag}}" bindtap="bindBtn">预约护工</view>
+</view>

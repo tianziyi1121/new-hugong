@@ -1,0 +1,52 @@
+<view class="content">
+  <image class="view-imag" mode="aspectFit" src="{{listData.cate_img}}"></image>
+  <view class="pad30 flj">
+    <view class="view-title f16 fc">{{listData.cate_name}}</view>
+    <view class="view-number f14">月销量 {{listData.cate_sale}} 笔</view><!-- <text>配送约30分钟</text> -->
+  </view>
+  <view class="view-money flj pad30">
+    <view class="fb">￥{{listData.cate_price}}</view>
+    <view class="view-shopping f14" bindtap="bindShop">加入购物车</view>
+  </view>
+  <view class="order-line"></view>
+  <view class="view-view pad30 fc f16">产品详情</view>
+  <view class="pad30 f14 view-rich">
+    <rich-text nodes="{{listData.cate_content}}">暂无</rich-text>
+  </view>
+
+   <view class="product-footer flj pr view-ls_popup">
+    <view class="fl">
+      <view class="pa footer-view" bindtap="bindShopping">
+        <image src="../../../static/ic_shopping_cart_white_24dp.png"></image>
+        <view class="pa" wx:if="{{checkNum != 0}}">{{checkNum}}</view>
+      </view>
+      <view class="footer-total f12 fc">总价: <text>￥{{total == 0 ? '0.00' : total}}</text></view>
+    </view>
+    <button class="footer-btn" bindtap="bindPay">去支付</button>
+  </view>
+  <!-- 弹窗 -->
+  <view class="view-popup" hidden="{{domeMode}}">
+    <view class="view-shade pa" catchtap="hideModal" ></view>
+    <view class="view-content pa fljc transformDome" animation="{{animationData}}">
+      <view class="flj">
+        <view class="content-title f16 fc tac">明细</view>
+        <image catchtap="hideModal" src="../../../static/icon_close@2x.png"></image>
+      </view>
+      <view class="content-details">
+          <view class="content-work flj f16 fc">
+            <view>营养餐</view>
+            <view>￥{{total}}</view>
+          </view>
+          <view class="contentWork flj f14 fc" wx:for="{{currentList}}" wx:key="index" wx:for-item="item">
+            <view>{{item.cate_name}}</view>
+            <view>￥{{item.cate_price}}<text wx:if="{{item.num > 0 }}"> x {{item.num}}</text></view>
+          </view>
+      </view>
+      <view catchtap="bindPayment" data-id="1" class="content-btn f16 tac">在线支付 ￥{{total}}</view>
+    </view>
+  </view>
+  <!-- 阴影层 -->
+  <view style="display: {{loginFlag ? 'block' : 'none'}}">
+    <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+  </view>
+</view>

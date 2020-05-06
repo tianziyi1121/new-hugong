@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "预约护工",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "view-position": "/components/position/position",
+    "view-loading": "/components/loading/loading",
+    "view-no": "/components/noData/noData",
+    "login-view": "/components/login/login"
+  }
+}

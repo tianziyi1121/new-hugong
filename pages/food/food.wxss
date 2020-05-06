@@ -1,0 +1,15 @@
+@import "../../common/food_product.wxss";
+@import "../../common/food-details.wxss";
+@import "../../common/toast.wxss";
+.title-btn {margin-top: 10rpx;}
+.title-btn image { width: 48rpx; height: 48rpx;}
+.right-view .right-title {width: 70%;}
+.title-btn view {width: 70rpx;height: 48rpx;line-height: 48rpx;margin-top: 20rpx; }
+.right-title .title-money {color: #EE2B2B;}
+/* 弹窗 */
+.view-content .flj image { margin-top: 0;}
+.view-popup .view-content { height: 500rpx;}
+/* 右边 */
+.right-fiex { height: 56rpx; line-height: 56rpx;}
+.view-fiex { z-index: 99; top: 0; left: 0;}
+.view-bang { background: #fff; width: 100%;}

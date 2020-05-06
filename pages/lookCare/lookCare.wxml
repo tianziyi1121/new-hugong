@@ -1,0 +1,124 @@
+<!-- <refresh-view id='refreshView' bind:onRefresh="onPullDownRefresh"/> -->
+<view class="content">
+  <!-- 筛选 -->
+  <view class="lookCareNav f14">
+    <view class="borno">
+      <view class="lookCare fl" >
+        <view bindtap="screen" data-index="{{index}}" class="tac overn {{screenIndex == item.id ? 'borderActive' : 'borderTriangle'}}" wx:for="{{lookCareNav}}" data-item="{{item.id}}" wx:for-item="item" wx:for-index="index" wx:key="index">{{item.nav}}<view wx:if="{{item.flag}}"></view></view>
+      </view>
+      <view class="care-view f14 fl">
+        <view wx:for="{{lookCare}}" wx:key="index" for-item="item"> 
+          <view style="width: 154rpx;" class="care-bj tac fl pr {{screenIndex == item.id ? 'active' : ''}}" bindtap="screen" data-index="{{index}}" data-item="{{item.id}}">
+            <view class="overn" style="width: 154rpx;">{{item.nav}}</view>
+            <view wx:if="{{item.flag}}"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="positionNav pf {{positionFlag ? 'position borno' : ''}}">
+      <view class="lookCare fl" >
+        <view bindtap="screen" data-index="{{index}}" class="tac overn {{screenIndex == item.id ? 'borderActive' : 'borderTriangle'}}" wx:for="{{lookCareNav}}" data-item="{{item.id}}" wx:for-item="item" wx:for-index="index" wx:key="index">{{item.nav}}<view wx:if="{{item.flag}}"></view></view>
+      </view>
+      <view class="care-view f14 fl">
+        <view wx:for="{{lookCare}}" wx:key="index" for-item="item"> 
+          <view class="care-bj tac fl pr {{screenIndex == item.id ? 'active' : ''}}" bindtap="screen" data-index="{{index}}" data-item="{{item.id}}">
+            <view class="overn" style="width: 154rpx;">{{item.nav}}</view>
+            <view wx:if="{{item.flag}}"></view>
+          </view>
+        </view>
+      </view>
+    </view> 
+
+    <!-- 弹窗 -->
+    <view class="lookCareDialog" wx:if="{{dialogShow}}" catchtap="unshade" catchtouchmove="preventTouchMove">
+      <!-- <view  class="NoData f16">暂无数据</view> -->
+      <view class="dialogContent transformDome" animation="{{animationData}}">
+        <!-- 年龄 -->
+        <view class="dialog fl tac f14 baj pad30" wx:if="{{screenIndex != 5}}">
+          <view class="pad40 {{form.nursing_workers_age  == index ? 'active' : ''}}" wx:if="{{screenIndex == 0}}" catchtap="choiceEag" data-index="{{index}}" data-item="nursing_workers_age" wx:for="{{age}}" wx:key="index">{{item}}</view>
+          <!-- 性别 -->
+          <view class="pad40 {{form.nursing_workers_sex  == index ? 'active' : ''}}" wx:if="{{screenIndex == 1}}" catchtap="choiceEag" data-index="{{index}}" data-item="nursing_workers_sex"  wx:for="{{sex}}" wx:key="index">{{item}}</view>
+          <!-- 护龄 -->
+          <view class="pad40 {{form.nursing_workers_experience  == index ? 'active' : ''}}" wx:if="{{screenIndex == 2}}" catchtap="choiceEag" data-item="nursing_workers_experience" data-index="{{index}}" wx:for="{{workExperience}}" wx:key="index">{{item}}</view>
+          <!-- 级别 -->
+          <view class="pad40 {{form.nursing_rank  == index ? 'active' : ''}}" wx:if="{{screenIndex == 4}}" catchtap="choiceEag" data-index="{{item.nr_id}}" data-item="nursing_rank"  wx:for="{{rankList}}" wx:key="index">{{item.nr_name}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="lookCare-position" style="display: {{positionType ? 'none' : 'block'}};">
+      <view class="lookCareDialog" catchtap="unshade" catchtouchmove="preventTouchMove"></view>
+      <view class="lookCare-content transformDome" animation="{{animationData}}">
+        <view>
+        <!-- 地区 -->
+          <view-position wx:if="{{screenIndex == 5}}" dataType="2" typeNumber="{{dataType}}" id="position" bind:calendarchange="onCalendarChange" bind:showTab="unshade"/>
+          <!-- 科室 -->
+          <view-position wx:if="{{screenIndex == 3}}" dataType="2" typeNumber="{{dataType}}" id="position" bind:calendarchange="onCalendarChange" bind:showTab="unshade"/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class="scrolltop"></view>
+  <view style="margin-top: 40rpx;" wx:for="{{lookCareList}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+    <view class="care-data" wx:for="{{item}}" wx:key="indexs" wx:for-item="items" wx:for-index="indexs" data-index="{{index}}" data-number="{{indexs}}"  bindtap="bindlLookCare" data-id="{{items.nursing_workers_id}}">
+      <view  class="pad30 flj">
+        <view class="care-left">
+          <view class="pr">
+            <image mode="scaleToFill" src="{{items.nursing_workers_headpic != '' ? items.nursing_workers_headpic : '../../static/head.png'}}"></image>
+            <view class="pa {{items.nursing_workers_relation == 1 ? (items.nursing_count < 1 ? 'leisure' : 'busy') : (items.nursing_count < 3 ? 'leisure' : 'busy')}}">{{items.nursing_workers_relation == 1 ? (items.nursing_count < 1 ? leisure : busy) : (items.nursing_count < 3 ? leisure : busy)}}</view>
+          </view>
+          <view class="lookCare-img tac">
+            <image mode="aspectFit" wx:for="{{items.nursing_workers_relation == 1 ? busyState : leisureState}}" wx:for-item="itemIdenx" src="{{items.nursing_workers_relation == 1 ? (items.nursing_count < 1 ? leisureImg : busyImg) : (items.nursing_count != 0 ? (items.nursing_count >= itemIdenx ? busyImg : leisureImg): leisureImg)}}" wx:key="indexs" lazy-load='true'></image>
+          </view>
+        </view>
+        <view class="care-right">
+          <view class="fl">
+            <view>
+              <view class="right-title fl">
+                <text class="fb f16 fb">{{items.nursing_workers_name}}</text>
+                <view class="careTitle f12 tac">护龄{{items.nursing_workers_experience}}年</view>
+                <view class="care-rank f12 tac">{{items.nr_name}}</view>
+              </view>
+              <view class="fl right-man f14">
+                <text>{{items.nursing_workers_sex == 1 ? "男" : "女"}}</text>
+                <view>{{items.nursing_workers_age}}岁</view>
+                <view>{{items.nursing_workers_province}}</view>
+                <view class="right-man-hospital overn">{{items.nursing_workers_hospital}}</view>
+              </view>
+            </view>
+            <view class="right-collect tac f14 collectUrl" catchtap="bindCollect" data-id="{{items.nursing_workers_id}}" data-index="{{index}}" data-number="{{indexs}}">
+              <image mode="aspectFit" src="{{items.collection_count == 0 ? collectUrl : collectBlockUrl}}" lazy-load='true'></image>
+              <view>收藏</view>
+            </view>
+          </view>
+          <view class="right-speciality f14 over2">特长：{{items.nursing_workers_speciality}}</view>
+        </view>
+      </view>
+      <view class="flj right-footer">
+        <view></view>
+        <view class="flj">
+          <view class='right-money f14'>
+            <text>￥{{items.nursing_workers_money}}/天</text>
+            <text>{{items.comment_count}}条评论</text>
+          </view>
+          <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">电话</button> -->
+          <!-- <view class="right-btn tac f16 {{items.nursing_workers_relation == 1 ? (items.nursing_count < 1 ? 'green' : 'gray') : (items.nursing_count < 3 ? 'green' : 'gray')}}" catchtap="subscribe" data-index="{{index}}" data-number="{{indexs}}">{{items.nursing_workers_relation == 1 ? (items.nursing_count < 1 ? '预约' : '暂停预约') : (items.nursing_count < 3 ? '预约' : '暂停预约')}}</view> -->
+          <view class="right-btn tac f16 green" catchtap="subscribe" data-index="{{index}}" data-number="{{indexs}}">预约</view>
+        </view>
+      </view>
+      <view class="carelook-right"></view>
+    </view>
+  </view>
+  <!-- 暂无数据 -->
+  <view-no id="noData"></view-no>
+  <!-- 刷新 -->
+  <view style="display: {{loadingFlag ? 'none' : 'block'}};" class="view-loading productLoading">
+    <view-loading id="load"></view-loading>
+  </view>
+  <view wx:if="{{lsh_order}}" class="lsh_order pf"></view>
+  <!-- 阴影层 -->
+  <view style="display: {{loginFlag ? 'block' : 'none'}}">
+    <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+  </view>
+</view>

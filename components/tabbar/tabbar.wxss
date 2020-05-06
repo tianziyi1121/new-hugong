@@ -1,0 +1,5 @@
+@import "../../common/common.wxss";
+.list{ width: 100%; height: 100%;}
+.list > view { display: inline-block;}
+.color { color: #37cf6b;}
+image { width: 53rpx; height: 56rpx; margin-top: 8rpx; vertical-align:top;}

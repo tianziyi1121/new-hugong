@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="content">
+  <view class="view-logo tac">
+    <image mode="aspectFit" src = "../../static/logo.png"></image>
+  </view>
+  <view class="loginLine"></view>
+  <view class="loginTitle f16 tac">该程序将获取以下授权</view>
+  <view class="loginContent f12 tac">{{title}}</view>
+  <view ></view>
+  <view class="login-view tac fl">
+    <button bindtap="bindRefuse">拒绝</button>
+    <button wx:if="{{btnFlag != 2}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">允许</button>
+    <button wx:if="{{btnFlag == 2}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">允许</button>
+  </view>
+  <!-- 阴影层 -->
+  <!-- <view-shadow id='lsh_shadow'></view-shadow> -->
+</view>

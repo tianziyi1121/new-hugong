@@ -1,0 +1,9 @@
+.view-logo {margin-top: 140rpx;}
+.view-logo  image{width: 600rpx;height:382rpx;}
+.login-view { width: 600rpx; margin: 0 auto; margin-top:80rpx;}
+.login-view button {width: 260rpx;height: rpx;background: #4de088;color: #fff;border: none;border-radius: 44rpx;font-size: 32rpx;}
+.login-view button::after { border: none;}
+.login-view button:nth-child(1) { background: #ccc; color: #000;}
+.loginLine { width: 690rpx; margin: 0 auto; height: 2rpx; background: #ccc; margin-top: 40rpx; margin-bottom: 40rpx;}
+.loginLine { color: #000;}
+.loginContent { color: #888; margin-top: 20rpx;}

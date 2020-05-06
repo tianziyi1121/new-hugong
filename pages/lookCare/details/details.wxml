@@ -1,0 +1,70 @@
+<view class="content">
+  <image mode="aspectFit" class="details-img" src ="{{nursing_workers_bannerpic}}"></image>
+  <view class="details-title pr">
+    <view class="pa details-name">
+      <view class="title-name">{{nursing_workers_title}}</view>
+      <view class="title-money">{{nursing_workers_money}}/天</view>
+      <view class="title-line"></view>
+      <view class="title-list flj">
+        <view>
+          <image src="../../../static/20190620164054.png"></image>
+          <text>规范服务</text>
+        </view>
+         <view>
+          <image src="../../../static/20190620164054.png"></image>
+          <text>34小时维权</text>
+        </view>
+         <view>
+          <image src="../../../static/20190620164054.png"></image>
+          <text>不满意随时换</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <image class="image" src="https://www.rqxfj.com/data/upload/2020-04-11/y_2.jpg"></image>
+  <image class="image1" src="https://www.rqxfj.com/data/upload/2020-04-11/y_3.jpg"></image>
+  <!-- 列表 -->
+  <view class="details-list-title tac"> <text>随身</text>为您提供<text>[优质][放心]</text>的服务</view>
+  <view class="fl details-subhead">
+    <view></view>护工表现
+  </view>
+  <view class="details-image" bindtap="bindlist" data-url="../lookCare" data-type="2">
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_1.jpg"></image>
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_2.jpg"></image>
+  </view>
+
+  <!-- <view class="fl details-subhead">
+    <view></view>餐饮
+  </view>
+  <view class="details-image" bindtap="bindlist" data-url="../../food/food" data-type="1">
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_7.jpg"></image>
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_8.jpg"></image>
+  </view> -->
+
+  <view class="fl details-subhead">
+    <view></view>康复知识
+  </view>
+  <view class="details-image" bindtap="bindlist" data-url="../../recovery/recovery" data-type="1">
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_3.jpg"></image>
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_4.jpg"></image>
+  </view>
+
+  <view class="fl details-subhead">
+    <view></view>产品
+  </view>
+  <view class="details-image" bindtap="bindlist" data-url="../../product/product" data-type="2">
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_5.jpg"></image>
+    <image src="https://www.rqxfj.com/data/upload/2020-04-11/y_l_6.jpg"></image>
+  </view>
+  <image class="image23" src="https://www.rqxfj.com/data/upload/2020-04-11/y_4.jpg"></image>
+
+
+
+  <view class="lsdetails-line"></view>
+  <view class="details-btn fl pf">
+    <view class="fl">
+      <view bindtap="consent"><checkbox bind value="1" /></view><text bindtap="termSheet" class="f16">《预约条款》</text>
+    </view>
+    <view class="tac f14 {{checked ? 'footerRight' : 'footer-right'}}" bindtap="bindSubscribe">我要预约</view>
+  </view>
+</view>

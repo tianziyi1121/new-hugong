@@ -1,0 +1,9 @@
+
+<view class="fl">
+  <view class="list f12 {{ids == index ? 'color' : 'f6'}} tac" wx:for="{{tabbarList}}" wx:key="index">
+    <view catchtap="catchNav" data-url="{{item.pagePath}}">
+      <image src="{{ids == index ? item.iconPath : item.selectedIconPath}}"></image>
+      <view>{{item.text}}</view> 
+    </view>
+  </view>
+</view>

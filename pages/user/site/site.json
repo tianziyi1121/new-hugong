@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "地址管理",
+  "usingComponents": {
+    "view-show": "/components/oshow/oshow",
+    "view-no": "/components/noData/noData"
+  }
+}

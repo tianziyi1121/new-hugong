@@ -1,0 +1,1 @@
+<view class="shadow" wx:if="{{ls_flag}}"></view>

@@ -1,0 +1,98 @@
+ <!--indent.wxml-->
+<view class="content">
+  <view class="order-line" wx:if="{{currentList.length !== 0}}"></view>
+  <view wx:for="{{currentList}}" wx:for-item="item" wx:key="index" wx:for-index="index">
+    <view wx:for="{{item}}" wx:key="indes" wx:for-index="indexs" wx:for-item="items" >
+      <view class="pr">
+        <view class="indent-timer flj pad30">
+          <view>
+            <view>下单时间：{{items.create_time}}</view>
+            <view>订单编号：{{items.orderNo}}</view>
+          </view>
+          <image lazy-load='true' catchtap="bindDelete" data-id="{{items.orderId}}" data-number="{{indexs}}" data-index="{{index}}" data-state="1" mode="aspectFit" src="../../static/icon_orderlist_delete@2x.png"></image>
+        </view>
+        <!-- 护工 -->
+        <view wx:if="{{items.nursing_id != 0}}">
+          <view class="indent-name fl pad30" bindtap="indentList" data-id="{{items.nursing_id}}" data-type="1">
+            <image lazy-load='true' mode="scaleToFill" src="{{items.nursing_workers_headpic != '' ? items.nursing_workers_headpic : '../../static/head.png'}}"></image>
+            <view class="fl indent-title">
+              <text>{{items.nursing_name}}</text>
+              <view wx:if="{{items.nursing_rank_name != null}}">{{items.nursing_rank_name}}</view>
+            </view>
+          </view> 
+          <view class="index-time fl pad30">
+            <view>服务时间：{{items.service_show_time}}</view>
+            <view class="indent-line"></view>
+            <view>已服务：{{items.service_show_time_having}}</view> 
+          </view>
+          <view class="indent-goods pad30 fl" wx:if="{{items.product.length > 0}}">
+            <view>护理用品</view>
+            <view class="goods-img flw" >
+              <image bindtap='indentList' data-id="{{itemsd.pro_id}}" data-num="3" data-type="2" lazy-load='true' mode="aspectFit" wx:for="{{items.product}}" wx:for-item="itemsd" wx:key="indexsd" src="{{itemsd.pro_pic != '' ? itemsd.pro_pic : '../../static/placeholder_figure.png'}}"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 物品 -->
+        <view wx:if="{{items.nursing_id == 0 && items.orderType != 2}}" class="goods-details fl pad30" wx:for="{{items.product.length > 0 ? items.product : items.catering}}" wx:for-item="itemsd" wx:key="indexs" bindtap="indentList" data-id="{{itemsd.pro_id ? itemsd.pro_id : itemsd.cate_id}}" data-num="{{itemsd.pro_id ? 3 : 4}}" data-type="2">
+          <image lazy-load='true' mode="aspectFit" src="{{itemsd.pro_pic ? itemsd.pro_pic : (itemsd.cate_img != '' ? itemsd.cate_img : '../../static/placeholder_figure.png')}}"></image>
+          <view class="flj">
+            <view class="overn">{{itemsd.pro_name ? itemsd.pro_name : itemsd.cate_name}}</view>
+            <view class="overn">{{itemsd.pro_name ? (itemsd.op_product_price+'x'+ itemsd.op_product_num) : (itemsd.op_product_price +'  x   '+ itemsd.op_product_num) }}</view>
+          </view>
+        </view>
+        <!-- 充值 -->
+        <view class="goods-details fl pad30" wx:if="{{items.orderType == 2}}">
+          <image lazy-load='true' mode="aspectFit" src="../../static/db3e2694ded1ac6ac022c2313f10c01.jpg"></image>
+          <view class="flj">
+            <view class="overn">充值金额</view>
+            <view class="overn">￥{{items.goodsMoney}}</view>
+          </view>
+        </view>
+        <!-- 状态 -->
+        <!-- <view class="indentLine"></view> -->
+        <view class="indent-content pad30"><text wx:if="{{items.nursing_id != 0}}">护工服务</text> <text wx:if="{{items.items.product.length > 0}}"> + </text><text wx:if="{{items.product.length > 0}}">{{items.sum}} 件护理用品</text><text><text>{{(items.dataFlag == 1 && items.orderStatus == 0 && items.isClosed == 0) || items.dataFlag != 1 ? '应付款' : '实付款' }}</text> ：<text class="indent-money">￥{{items.realTotalMoney}}</text></text></view>
+        <!-- <view class="indentContentLine"></view> -->
+        <view class="indent-btn flj pad30">
+          <view></view>
+          <view class="fl btn-footer">
+          
+            <view wx:if="{{items.dataFlag == 1 && items.orderStatus == 0 && items.isClosed == 0}}" catchtap="bindmoney" data-timer="{{items.createTime}}" data-money="{{items.realTotalMoney}}" data-id="{{items.orderId}}" data-ordertype="{{items.orderType}}">待付款</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 1 && items.isClosed == 0 && items.nursing_id == 0 && (items.product.length != 0 || items.catering.length != 0)}}">待发货</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 1 && items.isClosed == 0 && items.nursing_id != 0}}">待服务</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 2 && items.isClosed == 0 && items.nursing_id == 0 && (items.product.length != 0 || items.catering.length != 0)}}">待收货</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 2 && items.isClosed == 0 && items.nursing_id != 0 }}">服务中</view>
+            <view class="nodataList fl" wx:if="{{nursing_id == 0}}">
+              <view wx:if="{{items.dataFlag == 1 && items.orderStatus == 2 && items.isClosed == 0 && (items.product != 0 || items.catering != 0)}}"  catchtap="bindDelete" data-id="{{items.orderId}}" data-state="2" data-number="{{indexs}}" data-index="{{index}}">确认收货</view>
+               <view wx:if="{{items.nursing_id != 0 && items.dataFlag == 1 && ((items.orderStatus == 1 && items.isClosed == 0 ) || (items.orderStatus == 2 && items.isClosed == 0)) }}" catchtap="bindApply" data-id="{{items.orderId}}">申请退款</view>
+            </view>
+            <view class="nodataList fl" wx:if="{{nursing_id != 0}}">
+              <view wx:if="{{items.dataFlag == 1 && items.orderStatus == 2 && items.isClosed == 0 && items.nursing_id == 0 && (items.product.length != 0 || items.catering.length != 0)}}"  catchtap="bindDelete" data-id="{{items.orderId}}" data-state="2" data-number="{{indexs}}" data-index="{{index}}">确认收货</view>
+              <!-- <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 2 && items.isClosed == 0 && items.nursing_id == 0 && items.nursing_id == nursing_id && (items.product.length != 0 || items.catering.length != 0)}}">待收货</view> -->
+              
+               <view wx:if="{{items.nursing_id != nursing_id && items.nursing_id != 0 && items.dataFlag == 1 && ((items.orderStatus == 1 && items.isClosed == 0 ) || (items.orderStatus == 2 && items.isClosed == 0)) }}" catchtap="bindApply" data-id="{{items.orderId}}">申请退款</view>
+            </view>
+             <view wx:if="{{items.nursing_id != 0 && nursing_id != items.nursing_id && items.dataFlag == 1 && items.orderStatus == 3 && items.isClosed == 0}}" catchtap="bindEvaluate" data-id="{{items.orderId}}">立即评价</view>
+            <view class="btn-footer-line" wx:if="{{items.nursing_id != 0 && nursing_id == items.nursing_id && items.dataFlag == 1 && items.orderStatus == 3 && items.isClosed == 0}}">待评价</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 4 && items.isClosed == 1}}">已完成</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 5 && items.isClosed == 0}}">退款中</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 6 && items.isClosed == 1 && items.isRefund == 1}}">已退款</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 7}}">拒绝退款</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag == 1 && items.orderStatus == 8}}">已作废</view>
+            <view class="btn-footer-line" wx:if="{{items.dataFlag != 1 }}">已失效</view>
+          </view>
+        </view>
+        <image mode="aspectFit" wx:if='{{items.dataFlag == 1 && items.orderStatus == 4 && items.isClosed == 1}}' class="goodImg pa" src="../../static/20190513151359.png"></image>
+        <view class="order-line"></view>
+      </view>
+    </view>
+  </view>
+  <!-- 暂无数据 -->
+  <view-no id="noData"></view-no>
+  <!--  -->
+  <!-- 弹窗 -->
+  <view-show id="show" title="{{title}}" bind:closeTost="bindCancel" bind:showTost="bindAffirm" catchtouchmove="preventTouchMove"></view-show>
+  <!-- 上拉加载 -->
+  <view style="display: {{loadingFlag ? 'none' : 'block'}};" class="view-loading">
+    <view-loading id="load"></view-loading>
+  </view>
+</view>

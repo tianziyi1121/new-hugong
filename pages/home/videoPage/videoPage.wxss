@@ -1,0 +1,3 @@
+.footButton { width: 100%; left: 0; bottom: 60rpx; z-index: 6; height: 100rpx;}
+.footButton .buttonImage{ width: 100rpx; height: 100rpx;}
+.footButton image:nth-child(2) { margin: 0 30rpx;}

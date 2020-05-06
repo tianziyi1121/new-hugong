@@ -1,0 +1,12 @@
+<view class="content">
+  <view wx:if="{{media.length != 1}}">
+    <agora-pusher id="rtc-pusher" url="{{media[0].url}}" muted="{{muted}}" bindpushfailed="onPusherFailed"></agora-pusher>
+    <agora-player id="rtc-player" url="{{media[1].url}}"></agora-player>
+  </view>
+  
+  <view class="footButton pf tac">
+    <image class="buttonImage" src="../../../static/btn_unmute_normal.png"></image>
+    <image class="buttonImage" src="../../../static/btn_endcall_normal.png"></image>
+    <image class="buttonImage" src="../../../static/btn_switch_camera_normal.png"></image>
+  </view>
+</view>

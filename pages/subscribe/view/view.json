@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "支付",
+  "usingComponents": {
+    "view-payment": "/components/payment/payment",
+    "login-view": "/components/login/login"
+  }
+}

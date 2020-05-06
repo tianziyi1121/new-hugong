@@ -1,0 +1,55 @@
+<view class="content">
+  <view class="videoSearch pf">
+    <view class="frame flj">
+      <image src="../../../static/search.png"></image>
+      <input placeholder="请输入你要搜索的内容" placeholder-class="placeholder f16"></input>
+    </view>
+  </view>
+  <view class="order-blank"></view>
+  <view class="videoList pad30">
+    <view class="list flj f16 f0" bindtap="bindType">
+      <view>选择医院</view>
+      <image src="../../../static/upload.png"></image>
+    </view>
+    <view class="rechange-line"></view>
+    <scroll-view scroll-y="true" style="height: {{height}}rpx;" bindscrolltolower="bindList">
+      <view wx:for="{{currentList}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <view wx:for="{{item}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs">
+          <view class="list flj" bindtap="bindData">
+            <view class="fl f16 f0">
+              <image src="../../../static/20200323102307.png"></image>
+              <view>{{items.contacts_format}}</view>
+            </view>
+            <view class="f14 f6">{{items.addtime_format}}</view>
+          </view>
+          <view class="rechange-line"></view>
+        </view>
+      </view>
+      <!-- zan wu shu ju -->
+      <view-no id="noData"></view-no>
+      <!-- 刷新 -->
+      <view style="display: {{loadingFlag ? 'none' : 'block'}};" class="view-loading productLoading">
+        <view-loading id="load"></view-loading>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="order-blank"></view>
+<!-- footer -->
+  <view class="videoFooter pf">
+    <nav-tabbar bind:onCatchNav="onCatchNav"></nav-tabbar>
+  </view>
+  <!-- pop-up -->
+  <view class="videoUp" wx:if="{{videoUp}}">
+    <view class="boxShadow pf {{shadow != '' ? (shadow == 1 ? 'boxShadow0' : 'boxShadow1') : ''}}" catchtap="catchList"></view>
+    <view class="videoView pf {{content != '' ? (content == 1? 'list0' : 'list1') : ''}} f16 f0">
+      <scroll-view scroll-y="true" style="height: 500rpx;" bindscrolltolower="bindTolower">
+        <view class="marList" wx:for="{{hospitalData}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+          <view wx:if="{{index == 0}}" class="rechange-line"></view>
+          <view wx:for="{{item}}"  wx:for-index="indexs" wx:for-item="items" wx:key="indexs" class="listData" catchtap="catcahHospital" data-id="{{items.id}}" data-data="{{items.name}}">{{items.name}}</view>
+        </view>
+        <view wx:if='{{naData}}' class="tac f9 f16 noData">暂无数据</view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

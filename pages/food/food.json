@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "营养餐",
+  "usingComponents": {
+    "view-no": "/components/noData/noData",
+    "login-view": "/components/login/login"
+  }
+}

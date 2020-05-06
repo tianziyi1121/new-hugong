@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "评价",
+  "usingComponents": {
+    "view-loading": "/components/loading/loading",
+    "view-no": "/components/noData/noData",
+    "login-view": "/components/login/login"
+  }
+}

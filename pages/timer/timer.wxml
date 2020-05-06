@@ -1,0 +1,11 @@
+<view>
+  <view class="zhiDing">
+    <view class="list fb"  wx:for="{{date}}"  wx:key="index">{{item}}</view>
+  </view>
+  <view-timer  bindmyevent="onMyEvent" id='viewTimer'/>
+</view>
+<view class="time-line"></view>
+<view class="time-footer pf flj">
+  <view bindtap="bindClear">清除</view>
+  <view bindtap="bindAffirm">确认</view>
+</view>

@@ -1,0 +1,22 @@
+<view class="product">
+  <view class="product-view f12 flj">
+    <!-- 左边菜单栏 -->
+    <scroll-view class="product-left f14 fc" scroll-top="{{leftScrollTop}}" scroll-y="true" style="height:{{height}}rpx;">
+      <view class="left-list tac {{index == activeIndex ? 'active' :''}}" wx:for="{{listData}}" wx:key="index" data-index="{{index}}" bindtap='selectMenu'>{{item.cat_name}}</view>
+    </scroll-view>
+    <!-- 右边的菜单 -->
+    <scroll-view class="product-right" scroll-y="true" style='height:{{height}}rpx;' bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="title f16 fc pf viewTile">{{viewTile}}</view>
+      <view wx:for="{{listData}}" wx:for-item="item" wx:for-index="index" wx:key="index" id="a{{index}}">
+        <view class="title f14 fc" wx:if="{{item.product.length != 0}}">{{index != 0 ? item.cat_name : ''}}</view>
+        <view class="right-view fl" wx:for="{{item.product}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs" bindtap="bindList" data-id="{{items.pro_id}}">
+          <image mode="aspectFit" src="{{items.pro_pic}}" lazy-load='true'></image>
+          <view class="right-title">
+            <view class="title-name f16 fc overn">{{items.pro_name}}</view>
+            <view class="title-money f12 flj"><text class="f14">￥{{items.pro_price}}</text><view>月销{{items.pro_sell_count}}笔</view></view>
+          </view>
+        </view>  
+      </view>
+    </scroll-view>
+  </view>
+</view>

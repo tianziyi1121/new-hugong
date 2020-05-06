@@ -1,0 +1,61 @@
+/* home.wxss */
+.banner-swiper { height: 360rpx;}
+.banner-img { width: 750rpx;}
+/* 实名部分 */
+.homeReal { width: 100%; height: 74rpx; line-height: 74rpx; background: #f0f0f0;}
+.homeReal view { width:100%; color: #6b6b6b;}
+.homeReal image{ width: 30rpx; height: 34rpx; vertical-align:middle; margin-right:10rpx;}
+/* 功能部分 */
+.homeIon { padding:40rpx 0; background: #f9f9f9;}
+.homeIon > view { width: 100%;}
+.homeIon > view > view {display: inline-block;}
+.homeIon image { width: 80rpx; height: 80rpx;}
+.homeIon > view > view > view { color: #373737; margin-top:6rpx;}
+/* 热门问答 */
+/* .homeHot { padding-top: 30rpx; background: #fff; width: 100%; } */
+/* .homeHot .homeHotTitle { border-left: 4rpx solid #37cf6b; padding-left: 24rpx; margin-bottom: 30rpx; font-weight: bold; color: #333;}  */
+.homeHot .homeHotTitle { font-weight: bold; color: #333; width: 690rpx; margin-bottom: 30rpx;border-top: 2rpx solid #ccc; margin: 0 auto; padding: 20rpx 0;} 
+.homeHot .homeHotImg { overflow: hidden; max-height:320rpx; margin: 0 30rpx;}
+.homeHot .homeHotImg image { width:100%; max-height:320rpx;}
+.homeHot .homeHotHeadline { color: #fff; left: 42rpx; bottom: 60rpx; width: 100%;}
+.homeHot .homeHotHead { max-width: 400rpx;}
+.homeHot .homeHotBtn { width: 180rpx; height: 54rpx; line-height: 54rpx; margin: 40rpx 70rpx 0 0; background: #37cf6b; border-radius: 27rpx;}
+/* 热门问答列表 */
+.homeList { padding: 28rpx 30rpx 0; margin-bottom:24rpx;}
+.homeList .homeListItem { padding-bottom:22rpx; margin-top: 10rpx;}
+.homeList .homeListItem > image { width: 208rpx; height: 156rpx; border-radius: 10rpx;}
+.homeList .homeItem { margin: 8rpx 0 0 30rpx; color: #333;}
+.homeList .homeListTimer { color: #969696;}
+.homeList .homeLine { width: 100%; height: 2rpx; background: #f0f0f0; left:0; bottom:-20rpx;}
+.homeListTimer > view:nth-child(2) { width: 280rpx;}
+/* .homeListTimer .home { width: 300rpx;} */
+/* search */
+.searchbj { padding: 24rpx 0;}
+.searchBox { width: 580rpx; margin-left: 30rpx; height: 70rpx; border: 2rpx solid #37cf6b; border-radius: 15rpx; }
+.searchBox > view:nth-child(1) { width: 160rpx; height: 50rpx; border-right: 2rpx solid #999; margin-top: 10rpx; line-height: 50rpx; color: #999; padding-left: 16rpx;}
+.searchBox > view:nth-child(1) image { height: 25rpx; width: 25rpx;  right: 16rpx; bottom: 10rpx;}
+
+.searchBox input { width: 380rpx; height: 50rpx; line-height: 50rpx; margin: 10rpx 0 0 16rpx; color: #999;}
+view.search { width: 90rpx; height: 70rpx; line-height: 70rpx; background: #37cf6b; color: #fff; border-radius: 10rpx; margin: 0 30rpx 0 20rpx;}
+/* pull Down List */
+.pullDownList { top: 86rpx; left: 45rpx; width: 160rpx; background: #fff; border: 2rpx solid #37cf6b; z-index: 1000;}
+.pullDownList > view > view { height: 54rpx; line-height: 54rpx; color: #999; top: 0; left: 0; width: 100%; background: #fff;}
+.pullDownList > view > view:nth-child(1),.pullDownList > view > view:nth-child(2) { border-left: 2rpx solid #37cf6b; border-right: 2rpx solid #37cf6b;}
+.pullDownList > view > view:nth-child(3) { border: 2rpx solid #37cf6b; border-top: none;}
+.pullDownList view.active { background: #37cf6b; color: #fff;}
+.title1 { animation: title1 0.1s linear forwards;}
+@keyframes title1 { 
+  0% { top: 0;}
+  100% {top: 54rpx;} 
+}
+.title2 { animation: title2 0.1s linear forwards;}
+@keyframes title2 { 
+  0% { top: 0;}
+  100% {top: 108rpx;}
+}
+.content { background: #f9f9f9;}
+.homeImageHome image { width: 100%; height: 322rpx; margin-bottom: 20rpx;}
+.ImageList { background: #f9f9f9; width: 100%;}
+/*隐藏滚动条*/
+scroll-view::-webkit-scrollbar { width: 0; height: 0; color: transparent; display: none;}
+.noData { line-height: 37px; letter-spacing: 3px; color: #666; background: #f9f9f9;}

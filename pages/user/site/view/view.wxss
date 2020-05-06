@@ -1,0 +1,41 @@
+.viewList > view { line-height: 80rpx; }
+.viewList  input { height: 80rpx; flex: 1; margin-left: 30rpx;}
+.paddingList { margin-right: 30rpx;}
+.viewList textarea { width: 532rpx; padding: 25rpx 0 ; line-height: 34rpx; min-height: 110rpx;}
+.switch { margin-top: 50rpx;}
+.siteNew { left: 30rpx; bottom: 40rpx; z-index: 2; background: #37cf6b; color: #fff; height: 100rpx; border-radius: 50rpx; width: 690rpx; line-height: 100rpx;}
+.detailedAddress { width: 532rpx; line-height: 34rpx; min-height: 110rpx; padding-bottom: 49rpx;}
+/* pop-up */
+.videoUp .boxShadow { top: 0; left: 0; bottom: 0; right: 0; background: rgba(0,0,0,0.5); z-index: 1000;}
+.videoView { bottom: -600rpx; left: 0; height: 600rpx; z-index: 1001; opacity: 0; width: 100%; background: #fff;}
+.videoView.list0 { animation: list0 0.3s 0.2s linear forwards;} 
+@keyframes list0 {
+  0% { opacity: 0; bottom: -600rpx;}
+  50% { opacity: 0.5; bottom: -300rpx;}
+  100% { opacity: 1; bottom: 0;}
+}
+.videoView.list1 { animation: list1 0.3s linear forwards;}
+@keyframes list1 {
+  0% { opacity: 1; bottom: 0;}
+  50% { opacity: 0.5; bottom: -300rpx;}
+  100% { opacity: 0; bottom: -600rpx;}
+}
+.videoUp .boxShadow0 { animation: boxShadow0 0.2s linear forwards;}
+@keyframes boxShadow0 {
+  0% { opacity: 0;}
+  50% { opacity: 0.5;}
+  100% { opacity: 1;}
+}
+.videoUp .boxShadow1 { animation: boxShadow1 0.2s 0.3s linear forwards;}
+@keyframes boxShadow1 {
+  0% { opacity: 1;}
+  50% { opacity: 0.5;}
+  100% { opacity: 0;}
+}
+.noData { padding: 30rpx 0; background: #f9f9f9;}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.position { flex: 1;}

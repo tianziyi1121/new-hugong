@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "食品详情",
+  "usingComponents": {
+    "login-view": "/components/login/login"
+  }
+}

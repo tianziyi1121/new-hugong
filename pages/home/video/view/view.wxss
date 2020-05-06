@@ -1,0 +1,8 @@
+.videoSearch { padding: 10rpx 30rpx; top: 0; left: 0;}
+.videoSearch .frame { background: #f4f4f4; height: 80rpx; border-radius: 40rpx;}
+.videoSearch image { width: 48rpx; height: 48rpx; margin: 17rpx 25rpx 0 31rpx;}
+.videoSearch input { width: 555rpx; margin-right: 31rpx; height: 80rpx;}
+.placeholder { color: #999;}
+.videoList image { width: 78rpx; height: 78rpx; margin: 11rpx 30rpx 0 0;}
+.videoList .list > image { width: 20rpx; height: 34rpx; margin-top: 40rpx;}
+.videoList .list { height: 100rpx; line-height: 100rpx;}

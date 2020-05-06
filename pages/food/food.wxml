@@ -1,0 +1,67 @@
+<view class="product">
+  <!-- <view class="product-input f16 fl">
+    <image src="../../static/search.png"></image>
+    <input placeholder='请输入产品名称' placeholder-style="color:#999;"></input>
+  </view> -->
+  <view class="product-view f12 flj">
+    <!-- 左边菜单栏 -->
+    <scroll-view class="product-left f14 fc" scroll-top="{{leftScrollTop}}" scroll-y="true" style="height:{{height}}rpx;">
+      <view class="left-list tac {{index == activeIndex ? 'active' :''}}" wx:for="{{listData}}" wx:key="index" data-index="{{index}}" bindtap='selectMenu'>{{item.name}}</view>
+    </scroll-view>
+    <scroll-view class="product-right" scroll-y="true" style='height:{{height}}rpx;' bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="right-fiex fc f16 pf view-bang">{{viewTile}}</view>
+      <view wx:for="{{listData}}" wx:for-item="item" wx:for-index="index" wx:key="index" id="a{{index}}">
+        <view class="right-fiex fc f16 view-fiex">{{ index != 0 ? item.name : ''}}</view>
+        <view class="right-view fl" wx:for="{{item.catering}}" wx:for-item="items" wx:for-index="indexs" wx:key="indexs" bindtap="bindList" data-index="{{index}}" data-number="{{indexs}}" data-id="{{items.cate_id}}">
+          <image mode="aspectFit" src="{{items.cate_img}}" lazy-load='true'></image>
+          <view class="right-title">
+            <view class="title-name f14 fc overn">{{items.cate_name}}</view>
+            <view class= "flj">
+              <view class="title-money f16 fb">￥{{items.cate_price}}</view>
+              <view class="fl title-btn">
+                <image lazy-load='true' wx:if="{{items.num != 0}}" catchtap="catchMin"  data-index="{{index}}" data-number="{{indexs}}" src="../../static/icon_subtraction@2x.png"></image>
+                <view  wx:if="{{items.num != 0}}" class="fc f16 tac">{{items.num}}</view>
+                <image lazy-load='true' catchtap="catchAdd" data-index="{{index}}" data-number="{{indexs}}" src="../../static/icon_add@2x.png"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class="product-footer flj pr">
+    <view class="fl">
+      <view class="pa footer-view" bindtap="bindShopping">
+        <image  src="../../static/ic_shopping_cart_white_24dp.png"></image>
+        <view class="pa" wx:if="{{checkNum != 0}}">{{checkNum}}</view>
+      </view>
+      <view class="footer-total f12 fc">总价: <text>￥{{total == 0 ? '0.00' : total}}</text></view>
+    </view>
+    <button class="footer-btn" bindtap="bindPay">去支付</button>
+  </view>
+  <!-- 弹窗 -->
+  <view class="view-popup" hidden="{{domeMode}}">
+    <view class="view-shade pa" catchtap="hideModal" ></view>
+    <view class="view-content pa fljc transformDome" animation="{{animationData}}">
+      <view class="flj">
+        <view class="content-title f16 fc tac">明细</view>
+        <image catchtap="hideModal" src="../../static/icon_close@2x.png"></image>
+      </view>
+      <view class="content-details">
+          <view class="content-work flj f16 fc">
+            <view>营养餐</view>
+            <view>￥{{total}}</view>
+          </view>
+          <view class="contentWork flj f14 fc" wx:for="{{currentList}}" wx:key="index" wx:for-item="item">
+            <view>{{item.cate_name}}</view>
+            <view>￥{{item.cate_price}}<text wx:if="{{item.num > 0 }}"> x {{item.num}}</text></view>
+          </view>
+      </view>
+      <view catchtap="bindPayment" data-id="1" class="content-btn f16 tac">在线支付 ￥{{total}}</view>
+    </view>
+  </view>
+  <!-- 阴影层 -->
+  <view style="display: {{loginFlag ? 'block' : 'none'}}">
+    <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+  </view>
+</view>

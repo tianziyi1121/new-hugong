@@ -1,0 +1,28 @@
+<view class="content">
+  <view class="food-title f16 flj pad30">支付方式 
+    <view class="right-title f14 fl">
+      在线支付
+      <view class="f12">默认</view>
+    </view>
+  </view>
+  <view class="order-line"></view>
+  <view class="food-list pad30" wx:for="{{currentList}}" wx:key="index">
+    <view class="flj">
+      <image mode="aspectFit" src="{{item.cate_img}}"></image>
+      <view class="food-content">
+        <view class="content-title f16 overn fc">{{item.cate_name}}</view>
+        <rich-text class="content-contents f12 over3" nodes="{{item.cate_content}}"></rich-text>
+        <view class="f16 food-money fb">￥{{item.cate_price}}</view>
+      </view>
+    </view>
+    <view class="flj f14 fc food-num">购买数量 <view>{{item.num}}</view> </view>
+  </view>
+  <view class="order-line"></view>
+  <view class="f14 fc pad30 remark">订单备注</view>
+  <textarea class="food-textarea f14" bindinput="bindText"  placeholder='请输入送货地址（如：xx医院xx科室xx号病床）' placeholder-style="color:#999;"></textarea>
+  <view class="food-footer_juli"></view>
+</view>
+<cover-view class="food-footer pf flj">
+  <cover-view class="foot_money fc f16 fl">合计:<cover-view class="fb">￥{{total}}</cover-view></cover-view> 
+  <cover-view class="foot_btn tac f16" catchtap="bindOrder">提交订单</cover-view> 
+</cover-view>

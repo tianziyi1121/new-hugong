@@ -1,0 +1,10 @@
+.product-footer { height: 98rpx; border-top: 2rpx solid #CCC; padding-left: 30rpx;}
+.product-footer .footer-view { width: 100rpx; height: 100rpx; border-radius: 50%; background: #EE2B2B; text-align: center;left: 26rpx; bottom: 12rpx;}
+.footer-view view { width: 40rpx; height: 40rpx; border-radius: 50%; background: #EE2B2B; color: #fff; line-height: 40rpx; left: 80rpx; bottom: 60rpx; z-index: 12; font-size: 24rpx;}
+.product-footer image { width: 60rpx; height: 60rpx;margin-top: 20rpx;}
+.footer-total { line-height: 100rpx; margin-left: 134rpx;}
+.footer-total text { font-size: 32rpx; color: #EE2B2B;}
+.footer-btn { width: 40%; background: #EE2B2B; color: #fff;border-radius: 0; margin: 0; padding: 0;}
+/* 弹窗 */
+.view-content .flj image { margin-top: 0;}
+.view-popup .view-content { height: 500rpx;}

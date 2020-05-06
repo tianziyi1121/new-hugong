@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "账户余额",
+  "usingComponents": {
+    "login-view": "/components/login/login"
+  }
+}

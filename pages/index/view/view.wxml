@@ -1,0 +1,16 @@
+<view class="content">
+  <view class="fc f16 tac identity-title">请选择身份</view>
+  <view class="identity-img tac flj f14">
+    <view class="identity-view" bindtap="bindSelect" data-type="2">
+      <image mode="aspectFill" src="{{type == 2 ? '../../../static/man.png' : '../../../static/patient_tinge.png'}}"></image>
+      <view class="indentTile">患者</view>
+    </view>
+    <view class="identity-view" bindtap="bindSelect" data-type="1">
+      <image mode="aspectFill" src="{{type == 1 ? '../../../static/lookcare.png' : '../../../static/nursing_workers_tinge.png'}}"></image>
+      <view class="indentTile">护工</view>
+    </view>
+  </view>
+  <button bindtap="bindBtn" class="identity-btn f16">下一步</button>
+  <!-- 阴影层 -->
+  <!-- <view-shadow id='lsh_shadow'></view-shadow> -->
+</view>

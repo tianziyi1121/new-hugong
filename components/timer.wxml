@@ -1,0 +1,42 @@
+<view class="page" id="page">
+  <view class="scroll" >
+    <scroll-view class="scroll1" scroll-y='true' scroll-into-view='{{tiao}}' >
+      <view id="tiao"></view>
+      <view class="xianRi" wx:for="{{xianShiZongData}}" wx:for-item='list' wx:for-index="id" wx:key="id">
+        <view class="xianriLI_1">{{list.xian}}</view>
+        <view class='xianriLI'>
+          <view class="list quXia" wx:for="{{list.shangData}}" wx:for-index="indexs"  wx:key="indexs">{{item}}</view>
+          <view wx:if="{{xianShi == list.xian && item.data < xianDay}}" class="list hui" wx:for="{{list.xainData}}" wx:for-index="in"  wx:key="in">
+            <view>
+              <view class="tac">{{item.data}}</view>
+              <view class="f12 tac">{{item.isNjieri==true || item.isFestival == true ? (item.Njieri == null ? item.festival : item.Njieri) : ( item.IDayCn == '初一' ? item.IMonthCn : item.IDayCn)}}</view>
+            </view>
+          </view>
+          <!-- <view wx:if="{{xianShi == list.xian && item.data < xianDay}}">
+          {{((item.isNjieri==true || item.isFestival == true) ? (item.Njieri == null ? item.festival : item.Njieri) : ( item.IDayCn == '初一' ? item.IMonthCn : item.IDayCn)) : ''}}
+          </view> -->
+          <view wx:if="{{xianShi==list.xian && item.data>=xianDay || xianShi!=list.xian}}"  class="list {{(item.getTime>xuanZheData[0].getTime && item.getTime<xuanZheData[1].getTime) ? 'bgDate' :  ''}}" wx:for="{{list.xainData}}" wx:for-index="ind" wx:key="ind" bindtap='dianXuan' data-day='{{item.data}}' data-shi='{{list.xian}}' data-flag="{{item.timerFlag}}" data-time="{{item.getTime}}">
+
+            <view wx:if='{{xuanZheData.length == 2 && item.getTime == xuanZheData[0].getTime}}' class='qiangXuan'></view>
+            <view wx:if='{{xuanZheData.length == 2 && item.getTime == xuanZheData[1].getTime}}' class='houXuan'></view>
+
+            <view class="xianDayaRi {{xuanZheData.length == 2 && (item.getTime == xuanZheData[0].getTime||item.getTime == xuanZheData[1].getTime)?'xuanbgDate':''}}  {{xianShi == list.xian && xianDay==item.data?'day':''}} {{(xuanZheData[0].xuanShiJian == list.xian && xuanZheData[0].xuanDayShi == item.data)||(xuanZheData[1].xuanShiJian == list.xian && xuanZheData[1].xuanDayShi == item.data)? 'xaunDay':''}}">           
+              <view>{{item.data}}</view>
+              <view class="f12" wx:if='{{!item.timerFlag && ((xianShi == list.xian && xianDay == item.data) && !(item.getTime == xuanZheData[0].getTime))}}' class='ruzhu'>今天</view>
+              <view class="f12 calendar1 " wx:if="{{item.timerFlag && item.getTime != xuanZheData[1].getTime}}">已约满</view>
+
+              <view class="f12 {{(item.getTime>xuanZheData[0].getTime && item.getTime<xuanZheData[1].getTime) ? 'calendar3' :  'calendar2'}}" wx:if="{{!item.timerFlag && ((xianShi == list.xian && xianDay != item.data) || xianShi != list.xian) && (item.getTime != xuanZheData[0].getTime && item.getTime != xuanZheData[1].getTime)}}">可预约</view>
+              <!-- <view class="f12 calendar2" wx:if="{{!item.timerFlag && ((xianShi == list.xian && xianDay != item.data) || xianShi != list.xian)}}">
+                {{((xuanZheData.length == 1 && item.getTime != xuanZheData[0].getTime) || (xuanZheData.length == 2 && item.getTime != xuanZheData[0].getTime && item.getTime != xuanZheData[1].getTime) || (xuanZheData.length != 1 && xuanZheData.length != 2)) ?((item.isNjieri==true || item.isFestival == true) ? (item.Njieri == null ? item.festival : item.Njieri) : ( item.IDayCn == '初一' ? item.IMonthCn : item.IDayCn)) : ''}}
+              </view> -->
+              <view class="f12" wx:if='{{xuanZheData.length > 0 && item.getTime==xuanZheData[0].getTime}}' class='ruzhu'>开始</view>
+              <view class="f12" wx:if='{{xuanZheData.length > 0 && item.getTime==xuanZheData[1].getTime}}' class='likai'>结束</view>
+            </view>
+          </view>
+          <view  class="list quXia" wx:for="{{list.xiaData}}" wx:for-index="inde"  wx:key="inde">{{item}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+

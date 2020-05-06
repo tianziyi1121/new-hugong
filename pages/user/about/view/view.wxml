@@ -1,0 +1,6 @@
+<view class="content">
+<view class="order-line"></view>
+  <view class="pad30 currentContent">
+    <rich-text nodes="{{currentCenter}}"></rich-text>
+  </view>
+</view>

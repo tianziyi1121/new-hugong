@@ -1,0 +1,18 @@
+<view class="content">
+  <view class="videoSearch pf">
+    <view class="frame flj">
+      <image src="../../../../static/search.png"></image>
+      <input placeholder="请输入你要搜索的内容" placeholder-class="placeholder f16"></input>
+    </view>
+  </view>
+  <view class="order-blank"></view>
+  <view class="videoList pad30" wx:for="{{hospitalData}}" wx:key="index">
+    <view wx:for="{{item}}" wx:for-item="items" wx:key="indexs">
+      <view class="list flj" bindtap="bindlist" data-title="{{items.name}}" data-id="{{items.id}}">
+        <view class="f16 f0">{{items.name}}</view>
+        <image src="../../../../static/getInto.png"></image>
+      </view>
+      <view class="rechange-line"></view>
+    </view>
+  </view>
+</view>

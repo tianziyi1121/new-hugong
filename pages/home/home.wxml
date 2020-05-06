@@ -1,0 +1,83 @@
+<wxs module="home" src="./home.wxs"></wxs>
+<scroll-view bindscroll="{{home.homeFunction}}" style='height:{{homeHeight}}rpx;' scroll-y bindscrolltoupper="bindscrolltoupper">
+  <!-- <view class="content"> -->
+    <view class="fl searchbj">
+      <view class="searchBox fl f14">
+        <view class="f14 pr" bindtap="searchStyle">
+          {{titleVlue}}<image class="pa" src="../../static/icon_nurselist_sxbar_sec_triangledown@2x.png"></image>
+        </view>
+        <input bindinput="bindInput" type="text" confirm-type="search" bindconfirm="bindconfirm" placeholder="请您输入要搜索的内容"></input>
+      </view>
+      <view class="search f12 tac" bindtap="search">搜索</view>
+      <view class='pa pullDownList f14 tac' wx:if="{{searchType}}">
+        <view class="pr">
+          <view wx:for="{{title}}" class="pa title{{index}} {{item.value == tityeVlue ? 'active' : ''}}" catchtap="titleType" data-name="{{item.title}}" data-type="{{item.value}}" wx:key="index">{{item.title}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="HomeHeight"></view>
+    <swiper class="banner-swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="#37cf6b" indicator-color="#D8D8D8">
+      <block wx:for="{{bannerList}}" wx:key="item">
+        <swiper-item>
+            <image bindtap="bindImage" data-type="1" data-index="{{index}}" class="banner-img" mode="widthFix" src="{{item.plug_ad_pic != '' ?  item.plug_ad_pic : '../../static/placeholder_figure.png'}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="homeReal fl f12 tac">
+      <view><image src="../../static/autonym.png"></image>100%实名认证</view>
+      <view><image src="../../static/autonym.png"></image>24小时接单</view>
+      <view><image src="../../static/autonym.png"></image>无中介费</view>
+    </view>
+    <view class="homeIon fl f14 tac pad30">
+      <view>
+        <view data-index="../lookCare/lookCare" bindtap="homeFunction">
+          <image mode="aspectFit" src="../../static/subscribe.png"></image>
+          <view>预约护工</view>
+        </view>
+      </view>
+      <!-- <view data-index="../food/food" bindtap="homeFunction">
+        <view>
+          <image mode="aspectFit" src="../../static/food.png"></image>
+          <view>营养餐</view>
+        </view>
+      </view> -->
+      <view wx:if="{{typeData == 1}}" >
+        <view data-index="../register/register" bindtap="homeFunction">
+          <image mode="aspectFit" src="../../static/talent.png"></image>
+          <view>人才服务</view>
+        </view>
+      </view>
+      <!-- <view data-index="../recovery/recovery?id=1" bindtap="homeFunction">
+        <view>
+          <image mode="aspectFit" src="../../static/postoperation.png"></image>
+          <view>术后康复</view>
+        </view>
+      </view> -->
+      <!-- <view>
+        <view data-index="video/view" bindtap="homeFunction">
+          <image mode="aspectFit" src="../../static/video.png"></image>
+          <view>视频聊天</view>
+        </view>
+      </view> -->
+      <view>
+        <view data-index="../recovery/recovery?id=2" bindtap="homeFunction">
+          <image mode="aspectFit" src="../../static/knowledge.png"></image>
+          <view>康复知识</view>
+        </view>
+      </view>
+    </view>
+    <view class="homeHot">
+      <view class="homeHotTitle f16 tac">{{titleData}}</view>
+    </view>
+    <view class="ImageList">
+      <view class="pad30 homeImageHome" wx:for="{{currentList}}" wx:key="index">
+        <image mone="aspectFit" src="{{item.menu_img != '' ? item.menu_img : '../../static/placeholder_figure.png'}}" bindtap="bindImage"  data-type="2"  data-index="{{index}}"></image>
+      </view>
+    </view>
+    <view class="f14 noData tac">没有更多了</view>
+    <!-- 阴影层 -->
+    <view style="display: {{loginFlag ? 'block' : 'none'}}">
+      <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+    </view>
+  <!-- </view> -->
+</scroll-view>

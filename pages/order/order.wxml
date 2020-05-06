@@ -1,0 +1,73 @@
+<view class="content">
+  <view class="order-title flj pad30 f16 pf">
+    <view class="fb">支付方式</view>
+    <view class="fl">在线支付 <view>默认</view></view>
+  </view>
+  <view class="order-margin"></view>
+  <view class="order-line"></view>
+
+  <view wx:if="{{editData !== '' && editData !== null}}" class="orderEdit flj pad30 pr" bindtap="bindEdit" data-id="{{editData.id}}">
+    <view class="editContent f0">
+      <view class="fl f14">
+        <view  wx:if="{{editData.province !== editData.city}}">{{editData.province}}{{editData.city}}{{editData.county}}</view>
+        <view wx:if="{{editData.province === editData.city}}">{{editData.city}}{{editData.county}}</view>
+        <view class="default f12" wx:if="{{editData.status == 1}}">默认</view>
+      </view>
+      <view class="f16 fb">{{editData.address}}</view>
+      <view class="f14 editName fl "><view class="overn">{{editData.name}}</view><text>{{editData.tel}}</text></view>
+    </view>
+    <image class="pa editImage" src="../../static/youjiantou.png"></image>
+  </view>
+  <view  wx:if="{{editData === '' || editData === null}}" class="naEdit flj pad30 f6 f16" bindtap="bindEdit" data-index="2">
+    <view>请添加收货地址</view>
+    <image src="../../static/youjiantou.png"></image> 
+  </view>
+
+  <view class="order-list" wx:for="{{currentList}}" wx:for-item="item" wx:key="index">
+    <view class="order-line"></view>
+    <view class="order-data pad30 flj">
+      <image mode="aspectFit" src="{{item.pro_pic != '' ? item.pro_pic : '../../static/placeholder_figure.png'}}"></image>
+      <view class="orde-right fljc">
+        <view class="right-title overn f14 fb">{{item.pro_name}}</view>
+        <view class="right-content f12 over3">{{item.pro_description}}</view>
+        <view class="right-money f16 fb">￥{{ typeFlag ? item.carts_product_price : item.pro_price}}</view>
+      </view>
+    </view>
+     <view class="flj right-num pad30 f14" >
+      <view>购买数量</view>
+      <view class="fl order-footer">
+        <view wx:if="{{valueFlag}}" class="order-img" bindtap="orderMin" data-index="{{index}}">
+          <image class="order-min" mode="aspectFit" src="../../static/icon_subs_marketcar@2x.png"></image>
+        </view>
+        <view class="tac">{{typeFlag ? item.carts_num : item.pro_num}}</view>
+        <view wx:if="{{valueFlag}}" class="order-img" bindtap="orderAdd" data-index="{{index}}">
+          <image class="order-add" mode="aspectFit" src="../../static/icon_add_marketcar@2x.png"></image>
+        </view> 
+      </view>
+    </view>
+  </view>
+  <!-- <view class="order-line"></view>
+  <view class="orderEdit flj pad30 pr" bindtap="bindEdit" data-id="{{editData.id}}">
+    <view class="editContent f0">
+      <view class="fl f14">
+        <view  wx:if="{{editData.province !== editData.city}}">{{editData.province}}{{editData.city}}{{editData.county}}</view>
+        <view wx:if="{{editData.province === editData.city}}">{{editData.city}}{{editData.county}}</view>
+        <view class="default f12" wx:if="{{editData.status == 1}}">默认</view>
+      </view>
+      <view class="f16 fb">{{editData.address}}</view>
+      <view class="f14 editName">{{editData.name}}<text>{{editData.tel}}</text></view>
+    </view>
+    <image mode="aspectFit" class="pa" src="../../static/getInto.png"></image>
+  </view> -->
+  <view class="order-line"></view>
+  <view class="pad30 order-remark">
+    <view class="f16 fc">订单备注：</view>
+    <textarea bindinput=' ' maxlength="90" placeholder='请输入订单备注'></textarea>
+  </view>
+  <view class="order-blank"></view>
+  <view class="order-refer-juli"></view>
+</view>
+<cover-view class="order-refer pf fl">
+  <cover-view class="total fl">合计:<cover-view class="red fb">￥ {{total}}</cover-view></cover-view>
+  <cover-view class="order-btn tac" bindtap="bindOrder">提交订单</cover-view> 
+</cover-view>

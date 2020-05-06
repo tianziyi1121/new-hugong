@@ -1,0 +1,103 @@
+<!--user.wxml-->
+<view class="content">
+  <view class="user-details flj">
+    <view class="user-img fl">
+      <view>
+        <image bindtap="bindImage" mode="scaleToFill" src="{{!userFlag ? '../../static/head.png' : currentList.member_list_headpic}}"></image>
+      </view>
+      <view wx:if="{{!userFlag}}" class="f16 fc userLogin tac" bindtap="bindLogin">请登录</view>
+      <view class="user-name overn" wx:if="{{userFlag}}">
+        <text>{{currentList.member_list_nickname == '' ? currentList.member_list_username : currentList.member_list_nickname}}</text>
+        <view class="user-approve fl f14"> {{currentList.member_list_tel}}
+  <!-- <image mode="aspectFit" src="{{user.approve == 1 ? urlApp : srcApp}}"></image>{{user.approve == 1 ? certified : unverified}} -->
+        </view>
+      </view>
+    </view>
+    <view class="user-account f12 fl" bindtap="commonality" data-type="1" data-url="../balance/balance" data-id="1">
+      <image src="../../static/icon_moneylast_me@2x.png"></image> <view>账户余额</view>
+    </view>
+  </view>
+  <view wx:if="{{lsh_type == 1}}">
+    <view class="order-line"></view>
+    <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="../register/register" data-id="1">
+      <view>护工注册</view>
+      <image src="../../static/youjiantou.png"></image>
+    </view>
+    <view class="user-line"></view>
+    <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="message/message" data-id="1">
+      <view>注册信息</view>
+      <image src="../../static/youjiantou.png"></image>
+    </view>
+    <view class="order-line"></view>
+    <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="order/order" data-id="1">
+      <view>预约信息</view>
+      <image src="../../static/youjiantou.png"></image>
+    </view>
+    <view class="user-line" wx:if="{{currentList.member_list_nursingid != ''}}"></view>
+    <view class="user-enroll flj pad30 f16" wx:if="{{currentList.member_list_nursingid != ''}}" bindtap="service">
+      <view>服务类型</view>
+      <image src="../../static/youjiantou.png"></image>
+    </view>
+  </view>
+  
+  <view class="order-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="../shopping/shopping" data-id="1">
+    <view>购物车</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="../indent/indent" data-id="2">
+    <view>我的订单</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="site/site" data-id="1">
+    <view>地址管理</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="view/view" data-id="1" >
+    <view>我的收藏</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="order-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="relation">
+    <view>联系我们</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="1" data-url="about/about" data-id="1">
+    <view>关于我们</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <view class="user-enroll flj pad30 f16" bindtap="commonality" data-type="2" data-url="pay/pay?member_list_paypwd={{currentList.member_list_paypwd}}"  data-id="1">
+    <view>支付设置</view>
+    <image src="../../static/youjiantou.png"></image>
+  </view>
+  <view class="user-line"></view>
+  <!-- 弹窗 -->
+  <view-show id="show" title="{{title}}" bind:closeTost="bindCancel" bind:showTost="bindAffirm" catchtouchmove="preventTouchMove"></view-show>
+  <!-- 阴影层 -->
+  <view style="display: {{loginFlag ? 'block' : 'none'}}">
+    <login-view bind:bindLogin="onBindLogin" id='loginView'></login-view>
+  </view>
+  <!-- type of service  -->
+  <view class="typeService" wx:if="{{typeServiceFlag}}">
+    <view class="typeShadow pf {{ typeShadow != null ? (typeShadow ? 'opacity0' : 'opacity1') : '' }}" catchtap="typeShad" data-type="1"></view>
+    <view class="typeContent pf {{ typeContent != null ? (typeContent ? 'content0' : 'content1') : ''}}">
+      <view class="f16 tac">选择服务类型</view>
+      <view class="f14 flj" wx:if="{{currentList.nursing_workers_relation != 1}}">
+        <view>一对一</view>
+        <image src="../../static/manSex.png"></image>
+      </view>
+      <!-- <view class="rechange-lineu"></view> -->
+      <view class="f14 flj" wx:if="{{currentList.nursing_workers_relation != 2}}">
+        <view>一对多</view>
+        <image src="../../static/manSex.png"></image>
+      </view>
+      <view class="typeHint f12">(提示：您提交之后，系统将会审核您当前是否有未完成的订单，以此来决定给您更改服务类型的时间)</view>
+      <button class="typeSubmit f14" catchtap="typeShad" data-type="2">提交</button>
+    </view>
+  </view>
+</view>
