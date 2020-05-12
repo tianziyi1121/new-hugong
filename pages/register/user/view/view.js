@@ -1,9 +1,11 @@
 // pages/register/user/view/view.js
+const api = require("../../../../utils/api")
 const app = getApp()
 Page({
   data: {
     state: null,
-    status: null
+    status: null,
+    id :null
   },
   onLoad: function (options) {
     let title = null
@@ -24,8 +26,13 @@ Page({
     let url
     if(e.currentTarget.dataset.index == 1){
       if (this.data.state == 1){
-        url = '../../../home/home'
-      }else{
+        //  url = '../../../home/home',
+         api.requestServerData('nursing_workers/nursing_place', 'post', { nursingId:this.id }, true).then((res) => {
+          // resolve(res)
+          console.log(res);
+          
+        })
+         }else{
         wx.navigateTo({
           url: '../../../user/message/message'
         })

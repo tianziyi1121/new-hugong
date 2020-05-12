@@ -50,7 +50,7 @@
 					"id": 0,
 					"name": "pages/home/home",
 					"pathName": "pages/home/home",
-					"query": "",
+					"query": "jurisdiction=1",
 					"scene": null
 				}
 			]

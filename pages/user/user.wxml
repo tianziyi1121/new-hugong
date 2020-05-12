@@ -8,7 +8,7 @@
       <view wx:if="{{!userFlag}}" class="f16 fc userLogin tac" bindtap="bindLogin">请登录</view>
       <view class="user-name overn" wx:if="{{userFlag}}">
         <text>{{currentList.member_list_nickname == '' ? currentList.member_list_username : currentList.member_list_nickname}}</text>
-        <view class="user-approve fl f14"> {{currentList.member_list_tel}}
+        <view class="user-approve fl f14"> {{currentList.member_role_id == 2 ? "患者" : "护工"}}
   <!-- <image mode="aspectFit" src="{{user.approve == 1 ? urlApp : srcApp}}"></image>{{user.approve == 1 ? certified : unverified}} -->
         </view>
       </view>

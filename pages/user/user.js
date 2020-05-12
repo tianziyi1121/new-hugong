@@ -47,9 +47,9 @@ Page({
   },
   getData() {
     common.userData(app.globalData.uid, app.globalData.token).then((res) => {
-      let data = res.data
+      let data = res.data            
       if(res.status == 1){
-        app.globalData.userData = data
+        app.globalData.userData = data        
         wx.setStorageSync('phoneNumber', data.member_list_tel)
         data.member_list_tel = data.member_list_tel.replace(/(\d{3})\d{6}(\d{2})/, '$1******$2');
         this.setData({
